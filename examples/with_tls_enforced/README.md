@@ -29,10 +29,10 @@ No requirements.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-aws-modules/vpc/aws | 5.0.0 |
-| <a name="module_private_ca"></a> [private\_ca](#module\_private\_ca) | git::https://github.com/nexient-llc/tf-aws-module-private_ca | 0.1.0 |
-| <a name="module_namespace"></a> [namespace](#module\_namespace) | git::https://github.com/nexient-llc/tf-aws-module-private_dns_namespace | 0.1.0 |
-| <a name="module_app_mesh"></a> [app\_mesh](#module\_app\_mesh) | git::https://github.com/nexient-llc/tf-aws-module-appmesh | 0.1.0 |
-| <a name="module_private_cert"></a> [private\_cert](#module\_private\_cert) | git::https://github.com/nexient-llc/tf-aws-module-acm_private_cert | 0.1.0 |
+| <a name="module_private_ca"></a> [private\_ca](#module\_private\_ca) | git::https://github.com/launchbynttdata/tf-aws-module_primitive-private_ca | 1.0.0 |
+| <a name="module_namespace"></a> [namespace](#module\_namespace) | git::https://github.com/launchbynttdata/tf-aws-module_primitive-private_dns_namespace | 1.0.0 |
+| <a name="module_app_mesh"></a> [app\_mesh](#module\_app\_mesh) | git::https://github.com/launchbynttdata/tf-aws-module_primitive-appmesh | 1.0.0 |
+| <a name="module_private_cert"></a> [private\_cert](#module\_private\_cert) | git::https://github.com/launchbynttdata/tf-aws-module_primitive-acm_private_cert | 1.0.0 |
 | <a name="module_virtual_node"></a> [virtual\_node](#module\_virtual\_node) | ../.. | n/a |
 
 ## Resources
