@@ -130,13 +130,13 @@ Currently, the `encrypt at transit` is not supported in terraform. There is an o
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0, <= 1.5.5 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.28.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.67.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.55.0 |
 
 ## Modules
 
@@ -156,8 +156,7 @@ No modules.
 | <a name="input_app_mesh_id"></a> [app\_mesh\_id](#input\_app\_mesh\_id) | ID of the App Mesh to use | `string` | n/a | yes |
 | <a name="input_tls_enforce"></a> [tls\_enforce](#input\_tls\_enforce) | Whether to enforce TLS on the backends | `bool` | `false` | no |
 | <a name="input_tls_mode"></a> [tls\_mode](#input\_tls\_mode) | Mode of TLS. Default is `STRICT`. Allowed values are DISABLED, STRICT and PERMISSIVE. This is required when<br>    `tls_enforce=true` | `string` | `"STRICT"` | no |
-| <a name="input_additional_application_ports"></a> [additional\_application\_ports](#input\_additional\_application\_ports) | Additional ports at which the application listens to | `list(number)` | `[]` | no |
-| <a name="input_acm_certificate_arn"></a> [acm\_certificate\_arn](#input\_acm\_certificate\_arn) | ARN of the private certificate to enforce TLS configuration on the Virtual Node | `any` | n/a | yes |
+| <a name="input_acm_certificate_arn"></a> [acm\_certificate\_arn](#input\_acm\_certificate\_arn) | ARN of the private certificate to enforce TLS configuration on the Virtual Node | `string` | n/a | yes |
 | <a name="input_certificate_authority_arns"></a> [certificate\_authority\_arns](#input\_certificate\_authority\_arns) | List of ARNs of private CAs to validate the private certificates | `list(string)` | `[]` | no |
 | <a name="input_namespace_name"></a> [namespace\_name](#input\_namespace\_name) | Name of the CloudMap Namespace to use for Service Discovery | `string` | `""` | no |
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | CloudMap Service Name to use for this Virtual Node service Discovery | `string` | `""` | no |

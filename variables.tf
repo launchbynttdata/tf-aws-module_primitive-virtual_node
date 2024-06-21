@@ -22,6 +22,7 @@ variable "app_mesh_id" {
 
 variable "tls_enforce" {
   description = "Whether to enforce TLS on the backends"
+  type        = bool
   default     = false
 }
 
@@ -34,14 +35,9 @@ variable "tls_mode" {
   default     = "STRICT"
 }
 
-variable "additional_application_ports" {
-  description = "Additional ports at which the application listens to"
-  type        = list(number)
-  default     = []
-}
-
 variable "acm_certificate_arn" {
   description = "ARN of the private certificate to enforce TLS configuration on the Virtual Node"
+  type        = string
 }
 
 variable "certificate_authority_arns" {
@@ -108,6 +104,7 @@ variable "health_check_config" {
 
 variable "health_check_path" {
   description = "Destination path for the health check request"
+  type        = string
   default     = ""
 }
 
