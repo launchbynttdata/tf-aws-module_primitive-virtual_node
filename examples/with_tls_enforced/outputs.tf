@@ -34,3 +34,13 @@ output "vpc_id" {
   description = "VPC Id for the example"
   value       = module.vpc.vpc_id
 }
+
+output "mesh_name" {
+  description = "Name of the Mesh"
+  value       = module.app_mesh.name
+}
+
+output "node_spec" {
+  description = "Node Spec"
+  value       = module.virtual_node.spec
+}

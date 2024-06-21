@@ -4,7 +4,8 @@ health_check_path = "/"
 certificate_authority_arns = []
 tls_enforce                = true
 tls_mode                   = "STRICT"
-naming_prefix              = "demo-app"
+logical_product_family     = "terratest"
+logical_product_service    = "vnodetest"
 environment                = "dev"
 region                     = "us-east-2"
 vpc_cidr                   = "10.1.0.0/16"
@@ -16,6 +17,15 @@ health_check_config = {
   timeout_millis      = 50000
   unhealthy_threshold = 2
 }
+idle_duration = {
+  unit  = "s"
+  value = 60
+}
+per_request_timeout = {
+  unit  = "s"
+  value = 60
+}
+
 tags = {
   "env" : "gotest",
   "creator" : "terratest",

@@ -24,3 +24,8 @@ output "name" {
   description = "Name of the Virtual Node"
   value       = aws_appmesh_virtual_node.this.name
 }
+
+output "spec" {
+  description = "Node Spec"
+  value       = aws_appmesh_virtual_node.this.spec
+}

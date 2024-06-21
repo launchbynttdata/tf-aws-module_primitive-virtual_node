@@ -177,4 +177,5 @@ No modules.
 | <a name="output_id"></a> [id](#output\_id) | ID of the Virtual Node. |
 | <a name="output_arn"></a> [arn](#output\_arn) | ARN of the Virtual Node |
 | <a name="output_name"></a> [name](#output\_name) | Name of the Virtual Node |
+| <a name="output_spec"></a> [spec](#output\_spec) | Node Spec |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
