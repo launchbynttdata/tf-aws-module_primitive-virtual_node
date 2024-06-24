@@ -160,7 +160,6 @@ No modules.
 | <a name="input_certificate_authority_arns"></a> [certificate\_authority\_arns](#input\_certificate\_authority\_arns) | List of ARNs of private CAs to validate the private certificates | `list(string)` | `[]` | no |
 | <a name="input_namespace_name"></a> [namespace\_name](#input\_namespace\_name) | Name of the CloudMap Namespace to use for Service Discovery | `string` | `""` | no |
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | CloudMap Service Name to use for this Virtual Node service Discovery | `string` | `""` | no |
-| <a name="input_cloud_map_attributes"></a> [cloud\_map\_attributes](#input\_cloud\_map\_attributes) | A map of strings to filter instances by any custom attributes | `map(string)` | `{}` | no |
 | <a name="input_dns_hostname"></a> [dns\_hostname](#input\_dns\_hostname) | DNS hostname for the Virtual Node to point at. Conflicts with Service Discovery | `string` | `""` | no |
 | <a name="input_ports"></a> [ports](#input\_ports) | Application ports | `list(number)` | `[]` | no |
 | <a name="input_protocol"></a> [protocol](#input\_protocol) | Protocol used for port mapping. Valid values are http, http2, tcp and grpc. Currently this same protocol will be used for all listeners | `string` | `"http"` | no |

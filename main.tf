@@ -147,7 +147,6 @@ resource "aws_appmesh_virtual_node" "this" {
       dynamic "aws_cloud_map" {
         for_each = length(var.namespace_name) > 0 ? [1] : []
         content {
-          attributes     = var.cloud_map_attributes
           service_name   = var.service_name
           namespace_name = var.namespace_name
         }

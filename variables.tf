@@ -60,12 +60,6 @@ variable "service_name" {
   default     = ""
 }
 
-variable "cloud_map_attributes" {
-  description = "A map of strings to filter instances by any custom attributes"
-  type        = map(string)
-  default     = {}
-}
-
 ## DNS (conflicts with Service Discovery)
 variable "dns_hostname" {
   description = "DNS hostname for the Virtual Node to point at. Conflicts with Service Discovery"
