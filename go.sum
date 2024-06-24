@@ -459,8 +459,6 @@ github.com/kylelemons/godebug v1.1.0 h1:RPNrshWIDI6G2gRW9EHilWtl7Z6Sb1BR0xunSBf0
 github.com/kylelemons/godebug v1.1.0/go.mod h1:9/0rRGxNHcop5bhtWyNeEfOS8JIWk580+fNqagV/RAw=
 github.com/launchbynttdata/lcaf-component-terratest v1.0.4 h1:uSnkCKT30Ua5ySJIusNDYsG2sHa71nVn+3N8mV9e5fc=
 github.com/launchbynttdata/lcaf-component-terratest v1.0.4/go.mod h1:olva1OkdJd+5ToVT+lLP05kYln6aFu7rSosPVep29sw=
-github.com/launchbynttdata/tf-aws-module_primitive-appmesh v0.0.0-20240528151041-bd97b80774d2 h1:XRhguya0HGYH/a7cAxyRDyBEEpefvDpfi/AEIafISxI=
-github.com/launchbynttdata/tf-aws-module_primitive-appmesh v0.0.0-20240528151041-bd97b80774d2/go.mod h1:EvRI2EVO8SCKsSk2iLBukfqwpcLw8Hdi3EDxDNMs2oM=
 github.com/mailru/easyjson v0.7.7 h1:UGYAvKxe3sBsEDzO8ZeWOSlIQfWFlxbzLZe7hwFURr0=
 github.com/mailru/easyjson v0.7.7/go.mod h1:xzfreul335JAWq5oZzymOObrkdz5UnU4kGfJJLY9Nlc=
 github.com/mattn/go-colorable v0.0.9/go.mod h1:9vuHe8Xs5qXnSaW/c/ABM9alt+Vo+STaOChaDxuIBZU=

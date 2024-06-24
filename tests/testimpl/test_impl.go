@@ -12,10 +12,15 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestComplete(t *testing.T, ctx types.TestContext) {
+func TestVirtualNode(t *testing.T, ctx types.TestContext) {
 	appmeshClient := appmesh.NewFromConfig(GetAWSConfig(t))
 	nodeName := terraform.Output(t, ctx.TerratestTerraformOptions(), "name")
 	meshName := terraform.Output(t, ctx.TerratestTerraformOptions(), "mesh_name")
+
+	_, err := appmeshClient.DescribeMesh(context.TODO(), &appmesh.DescribeMeshInput{MeshName: &meshName})
+	if err != nil {
+		t.Errorf("Error getting mesh description: %v", err)
+	}
 
 	output, err := appmeshClient.DescribeVirtualNode(context.TODO(), &appmesh.DescribeVirtualNodeInput{
 		MeshName:        &meshName,
@@ -27,7 +32,7 @@ func TestComplete(t *testing.T, ctx types.TestContext) {
 	virtualNode := output.VirtualNode
 
 	t.Run("TestDoesNodeExist", func(t *testing.T) {
-		require.Equal(t, "ACTIVE", virtualNode.Status, "Expected virtual node to be active")
+		require.Equal(t, "ACTIVE", string(virtualNode.Status.Status), "Expected virtual node to be active")
 	})
 }
 

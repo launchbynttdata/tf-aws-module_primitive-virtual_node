@@ -1,4 +1,4 @@
-module github.com/launchbynttdata/tf-aws-module_primitive-appmesh_virtual_node.git
+module github.com/launchbynttdata/tf-aws-module_primitive-virtual_node
 
 go 1.21
 
@@ -8,7 +8,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/appmesh v1.26.1
 	github.com/gruntwork-io/terratest v0.46.15
 	github.com/launchbynttdata/lcaf-component-terratest v1.0.4
-	github.com/launchbynttdata/tf-aws-module_primitive-appmesh v0.0.0-20240528151041-bd97b80774d2
 	github.com/stretchr/testify v1.9.0
 )
 
