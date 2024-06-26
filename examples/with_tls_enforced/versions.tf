@@ -10,22 +10,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-output "id" {
-  description = "ID of the Virtual Node."
-  value       = aws_appmesh_virtual_node.this.id
-}
+terraform {
+  required_version = ">= 1.5.0, <= 1.5.5"
 
-output "arn" {
-  description = "ARN of the Virtual Node"
-  value       = aws_appmesh_virtual_node.this.arn
-}
-
-output "name" {
-  description = "Name of the Virtual Node"
-  value       = aws_appmesh_virtual_node.this.name
-}
-
-output "spec" {
-  description = "Node Spec"
-  value       = aws_appmesh_virtual_node.this.spec
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.0"
+    }
+  }
 }

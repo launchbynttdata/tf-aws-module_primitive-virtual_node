@@ -30,13 +30,14 @@ module "vpc" {
 }
 
 module "private_ca" {
-  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-private_ca?ref=1.0.0"
+  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-private_ca?ref=1.0.1"
 
   count = length(var.certificate_authority_arns) == 0 ? 1 : 0
 
-  naming_prefix = local.naming_prefix
-  region        = var.region
-  environment   = var.environment
+  logical_product_family  = var.logical_product_family
+  logical_product_service = local.logical_product_service
+  region                  = var.region
+  environment             = var.environment
 
 }
 
@@ -49,13 +50,13 @@ module "namespace" {
 }
 
 module "app_mesh" {
-  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-appmesh?ref=1.0.0"
+  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-appmesh?ref=1.0.1"
 
   name = local.app_mesh_name
 }
 
 module "private_cert" {
-  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-acm_private_cert?ref=1.0.0"
+  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-acm_private_cert?ref=1.0.1"
 
   # Private CA is created if not passed as input
   private_ca_arn = length(var.certificate_authority_arns) == 0 ? module.private_ca[0].private_ca_arn : var.certificate_authority_arns[0]
@@ -76,6 +77,8 @@ module "virtual_node" {
   tls_mode                   = var.tls_mode
   certificate_authority_arns = length(var.certificate_authority_arns) > 0 ? var.certificate_authority_arns : [module.private_ca[0].private_ca_arn]
   health_check_config        = var.health_check_config
+  idle_duration              = var.idle_duration
+  per_request_timeout        = var.per_request_timeout
   tags                       = var.tags
 
 }
