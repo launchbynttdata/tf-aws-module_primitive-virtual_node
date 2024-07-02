@@ -30,7 +30,8 @@ module "vpc" {
 }
 
 module "private_ca" {
-  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-private_ca?ref=1.0.1"
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/private_ca/aws"
+  version = "~> 1.0"
 
   count = length(var.certificate_authority_arns) == 0 ? 1 : 0
 
@@ -42,7 +43,8 @@ module "private_ca" {
 }
 
 module "namespace" {
-  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-private_dns_namespace?ref=1.0.0"
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/private_dns_namespace/aws"
+  version = "~> 1.0"
 
   vpc_id = module.vpc.vpc_id
   name   = local.namespace_name
@@ -50,13 +52,15 @@ module "namespace" {
 }
 
 module "app_mesh" {
-  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-appmesh?ref=1.0.1"
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/appmesh/aws"
+  version = "~> 1.0"
 
   name = local.app_mesh_name
 }
 
 module "private_cert" {
-  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-acm_private_cert?ref=1.0.1"
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/acm_private_cert/aws"
+  version = "~> 1.0"
 
   # Private CA is created if not passed as input
   private_ca_arn = length(var.certificate_authority_arns) == 0 ? module.private_ca[0].private_ca_arn : var.certificate_authority_arns[0]
