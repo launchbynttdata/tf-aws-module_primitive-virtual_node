@@ -27,5 +27,5 @@ func TestVirtualNodeModule(t *testing.T) {
 		}).
 		Build()
 
-	lib.RunNonDestructiveTest(t, *ctx, testimpl.TestVirtualNode)
+	lib.RunNonDestructiveTest(t, *ctx, testimpl.TestComposableVirtualNode)
 }

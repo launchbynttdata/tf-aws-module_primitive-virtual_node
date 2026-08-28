@@ -124,19 +124,13 @@ If `make check` target is successful, developer is good to commit the code to pr
 # Know Issues
 Currently, the `encrypt at transit` is not supported in terraform. There is an open issue for this logged with Hashicorp - https://github.com/hashicorp/terraform-provider-aws/pull/26987
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.73.0 |
 
 ## Modules
 
@@ -152,29 +146,29 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | Name of the Virtual Node | `string` | n/a | yes |
-| <a name="input_app_mesh_id"></a> [app\_mesh\_id](#input\_app\_mesh\_id) | ID of the App Mesh to use | `string` | n/a | yes |
-| <a name="input_tls_enforce"></a> [tls\_enforce](#input\_tls\_enforce) | Whether to enforce TLS on the backends | `bool` | `false` | no |
-| <a name="input_tls_mode"></a> [tls\_mode](#input\_tls\_mode) | Mode of TLS. Default is `STRICT`. Allowed values are DISABLED, STRICT and PERMISSIVE. This is required when<br>    `tls_enforce=true` | `string` | `"STRICT"` | no |
 | <a name="input_acm_certificate_arn"></a> [acm\_certificate\_arn](#input\_acm\_certificate\_arn) | ARN of the private certificate to enforce TLS configuration on the Virtual Node | `string` | n/a | yes |
+| <a name="input_app_mesh_id"></a> [app\_mesh\_id](#input\_app\_mesh\_id) | ID of the App Mesh to use | `string` | n/a | yes |
 | <a name="input_certificate_authority_arns"></a> [certificate\_authority\_arns](#input\_certificate\_authority\_arns) | List of ARNs of private CAs to validate the private certificates | `list(string)` | `[]` | no |
-| <a name="input_namespace_name"></a> [namespace\_name](#input\_namespace\_name) | Name of the CloudMap Namespace to use for Service Discovery | `string` | `""` | no |
-| <a name="input_service_name"></a> [service\_name](#input\_service\_name) | CloudMap Service Name to use for this Virtual Node service Discovery | `string` | `""` | no |
 | <a name="input_dns_hostname"></a> [dns\_hostname](#input\_dns\_hostname) | DNS hostname for the Virtual Node to point at. Conflicts with Service Discovery | `string` | `""` | no |
+| <a name="input_health_check_config"></a> [health\_check\_config](#input\_health\_check\_config) | n/a | <pre>object({<br/>    healthy_threshold   = number<br/>    interval_millis     = number<br/>    timeout_millis      = number<br/>    unhealthy_threshold = number<br/>  })</pre> | <pre>{<br/>  "healthy_threshold": 2,<br/>  "interval_millis": 50000,<br/>  "timeout_millis": 50000,<br/>  "unhealthy_threshold": 3<br/>}</pre> | no |
+| <a name="input_health_check_path"></a> [health\_check\_path](#input\_health\_check\_path) | Destination path for the health check request | `string` | `""` | no |
+| <a name="input_idle_duration"></a> [idle\_duration](#input\_idle\_duration) | Idle duration for all the listeners | <pre>object({<br/>    unit  = string<br/>    value = number<br/>  })</pre> | `null` | no |
+| <a name="input_name"></a> [name](#input\_name) | Name of the Virtual Node | `string` | n/a | yes |
+| <a name="input_namespace_name"></a> [namespace\_name](#input\_namespace\_name) | Name of the CloudMap Namespace to use for Service Discovery | `string` | `""` | no |
+| <a name="input_per_request_timeout"></a> [per\_request\_timeout](#input\_per\_request\_timeout) | Per Request timeout for all the listeners | <pre>object({<br/>    unit  = string<br/>    value = number<br/>  })</pre> | `null` | no |
 | <a name="input_ports"></a> [ports](#input\_ports) | Application ports | `list(number)` | `[]` | no |
 | <a name="input_protocol"></a> [protocol](#input\_protocol) | Protocol used for port mapping. Valid values are http, http2, tcp and grpc. Currently this same protocol will be used for all listeners | `string` | `"http"` | no |
-| <a name="input_health_check_config"></a> [health\_check\_config](#input\_health\_check\_config) | n/a | <pre>object({<br>    healthy_threshold   = number<br>    interval_millis     = number<br>    timeout_millis      = number<br>    unhealthy_threshold = number<br>  })</pre> | <pre>{<br>  "healthy_threshold": 2,<br>  "interval_millis": 50000,<br>  "timeout_millis": 50000,<br>  "unhealthy_threshold": 3<br>}</pre> | no |
-| <a name="input_health_check_path"></a> [health\_check\_path](#input\_health\_check\_path) | Destination path for the health check request | `string` | `""` | no |
-| <a name="input_idle_duration"></a> [idle\_duration](#input\_idle\_duration) | Idle duration for all the listeners | <pre>object({<br>    unit  = string<br>    value = number<br>  })</pre> | `null` | no |
-| <a name="input_per_request_timeout"></a> [per\_request\_timeout](#input\_per\_request\_timeout) | Per Request timeout for all the listeners | <pre>object({<br>    unit  = string<br>    value = number<br>  })</pre> | `null` | no |
+| <a name="input_service_name"></a> [service\_name](#input\_service\_name) | CloudMap Service Name to use for this Virtual Node service Discovery | `string` | `""` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of custom tags to be attached to this resource | `map(string)` | `{}` | no |
+| <a name="input_tls_enforce"></a> [tls\_enforce](#input\_tls\_enforce) | Whether to enforce TLS on the backends | `bool` | `false` | no |
+| <a name="input_tls_mode"></a> [tls\_mode](#input\_tls\_mode) | Mode of TLS. Default is `STRICT`. Allowed values are DISABLED, STRICT and PERMISSIVE. This is required when<br/>    `tls_enforce=true` | `string` | `"STRICT"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_id"></a> [id](#output\_id) | ID of the Virtual Node. |
 | <a name="output_arn"></a> [arn](#output\_arn) | ARN of the Virtual Node |
+| <a name="output_id"></a> [id](#output\_id) | ID of the Virtual Node. |
 | <a name="output_name"></a> [name](#output\_name) | Name of the Virtual Node |
 | <a name="output_spec"></a> [spec](#output\_spec) | Node Spec |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
