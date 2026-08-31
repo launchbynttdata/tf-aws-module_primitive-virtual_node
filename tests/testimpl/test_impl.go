@@ -12,10 +12,10 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestVirtualNode(t *testing.T, ctx types.TestContext) {
+func TestComposableVirtualNode(t *testing.T, ctx types.TestContext) {
 	appmeshClient := appmesh.NewFromConfig(GetAWSConfig(t))
-	nodeName := terraform.Output(t, ctx.TerratestTerraformOptions(), "name")
-	meshName := terraform.Output(t, ctx.TerratestTerraformOptions(), "mesh_name")
+	nodeName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "name")
+	meshName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "mesh_name")
 
 	_, err := appmeshClient.DescribeMesh(context.TODO(), &appmesh.DescribeMeshInput{MeshName: &meshName})
 	if err != nil {

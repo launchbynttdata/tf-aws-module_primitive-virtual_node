@@ -27,5 +27,5 @@ func TestVirtualNodeModule(t *testing.T) {
 		}).
 		Build()
 
-	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestVirtualNode)
+	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestComposableVirtualNode)
 }
