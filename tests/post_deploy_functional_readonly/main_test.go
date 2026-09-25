@@ -13,7 +13,9 @@ const (
 	infraTFVarFileNameDefault        = "test.tfvars"
 )
 
-func TestVirtualNodeModule(t *testing.T) {
+// TestVirtualNodeModuleReadOnly validates deployed infrastructure without
+// creating, mutating, or destroying Terraform-managed resources.
+func TestVirtualNodeModuleReadOnly(t *testing.T) {
 	// The terraform provider ignores the aws cloud map attributes, but notices when AWS changes them from null to empty map
 	// This is why the terraform apply is not idempotent, though the second apply will not change anything
 	ctx := types.CreateTestContextBuilder().
@@ -27,5 +29,5 @@ func TestVirtualNodeModule(t *testing.T) {
 		}).
 		Build()
 
-	lib.RunNonDestructiveTest(t, *ctx, testimpl.TestComposableVirtualNode)
+	lib.RunNonDestructiveTest(t, *ctx, testimpl.TestComposableVirtualNodeReadOnly)
 }
